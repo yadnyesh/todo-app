@@ -22,7 +22,6 @@ class Counter extends Component {
     }
 
     increment() {
-        console.log('Increment by 1');
         this.setState({
             counter: this.state.counter + 1
         });
