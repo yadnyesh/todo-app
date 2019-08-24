@@ -1,9 +1,12 @@
-import React, {Component} from 'react';
+import React, {Component} from 'react'
+import './Counter.css'
+
 
 function Counter() {
     return (
       <div className="counters">
-        Counter
+        <button>+1</button><br></br>
+        <span className="count">0</span>
       </div>
     );
   }
