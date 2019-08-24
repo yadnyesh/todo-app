@@ -16,6 +16,7 @@ class App extends Component {
       <div className="App">
         My Hello World!
         <FirstComponent />
+        <SecondComponent />
       </div>
     );
   }
@@ -29,6 +30,14 @@ class FirstComponent extends Component {
       </div>
     );
   }
+}
+
+function SecondComponent() {
+  return (
+    <div className="secondComponent">
+      My Hello World from THIRD Component!
+    </div>
+  );
 }
 
 export default App;
