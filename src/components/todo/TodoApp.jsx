@@ -84,30 +84,32 @@ class ListTodosComponent extends Component {
         return(
             <div>
                 <h1>List Todos</h1>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Description</th>
-                            <th>Complete By Date</th>
-                            <th>Completed</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            this.state.todos.map(
-                                todo => (
-                                    <tr>
-                                        <td>{todo.id}</td>
-                                        <td>{todo.description}</td>
-                                        <td>{todo.targetDate.toString()}</td>
-                                        <td>{todo.done.toString()}</td>
-                                    </tr>
-                                )    
-                            )        
-                        }        
-                    </tbody>
-                </table>
+                <div className="container">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Description</th>
+                                <th>Complete By Date</th>
+                                <th>Completed</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                this.state.todos.map(
+                                    todo => (
+                                        <tr>
+                                            <td>{todo.id}</td>
+                                            <td>{todo.description}</td>
+                                            <td>{todo.targetDate.toString()}</td>
+                                            <td>{todo.done.toString()}</td>
+                                        </tr>
+                                    )    
+                                )        
+                            }        
+                        </tbody>
+                    </table>
+                </div>
             </div>
         );
     }
@@ -115,10 +117,12 @@ class ListTodosComponent extends Component {
 class WelcomeComponent extends Component {
     render () {
         return(
-            <div>
-                Welcome {this.props.match.params.name}
+            <>
+                <h1>Welcome! {this.props.match.params.name}</h1>
+                <div className="container">
                 You can manage your todos <Link to="/todos">here</Link>.
-            </div>
+                </div>
+            </>
         );
     }
 }
@@ -160,11 +164,14 @@ class LoginComponent extends Component {
     render() {
         return (
             <div>
-                {this.state.hasLoginfailed && <div>Invalid Credentials</div>}
-                {this.state.showSuccessMessage && <div>Login Successful</div>}
-                User Name: <input type = "text" name="username" value={this.state.username} onChange={this.handleChange}/>
-                Password: <input type = "password" name="password" value={this.state.password} onChange={this.handleChange}/>
-                <button onClick={this.loginClicked}>Login</button>
+                <h1>Login</h1>
+                <div className="container">
+                    {this.state.hasLoginfailed && <div className="alert alert-warning">Invalid Credentials</div>}
+                    {this.state.showSuccessMessage && <div>Login Successful</div>}
+                    User Name: <input type = "text" name="username" value={this.state.username} onChange={this.handleChange}/>
+                    Password: <input type = "password" name="password" value={this.state.password} onChange={this.handleChange}/>
+                    <button className="btn btn-success" onClick={this.loginClicked}>Login</button>
+                </div>
             </div>
         );
     }
