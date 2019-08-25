@@ -27,9 +27,19 @@ class TodoApp extends Component {
 class HeaderComponent extends Component {
     render() {
         return(
-            <div>
-                Header <hr />
-            </div>
+            <header>
+                <nav className="navbar navbar-expand-md navbar-dark bg-dark">
+                    <div href="/" className="navbar-brand"><a>Yadnyesh</a></div>
+                    <ul className="navbar-nav">
+                        <li className="nav-link"><Link to="/welcome/in28minutes" className="nav-link">Home</Link></li>
+                        <li className="nav-link"><Link to="/todos" className="nav-link">Todos</Link></li>
+                    </ul>
+                    <ul className="navbar-nav navbar-collapse justify-content-end">
+                        <li className="nav-link"><Link to="/login" className="nav-link">Login</Link></li>
+                        <li className="nav-link"><Link to="/logout" className="nav-link">Logout</Link></li>
+                    </ul>
+                </nav>
+            </header>
         )
     }
 }
@@ -65,8 +75,8 @@ class ListTodosComponent extends Component {
                         <tr>
                             <th>ID</th>
                             <th>Description</th>
-                            <th>Completed</th>
                             <th>Complete By Date</th>
+                            <th>Completed</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -76,8 +86,8 @@ class ListTodosComponent extends Component {
                                     <tr>
                                         <td>{todo.id}</td>
                                         <td>{todo.description}</td>
-                                        <td>{todo.done.toString()}</td>
                                         <td>{todo.targetDate.toString()}</td>
+                                        <td>{todo.done.toString()}</td>
                                     </tr>
                                 )    
                             )        
