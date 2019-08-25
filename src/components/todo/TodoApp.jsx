@@ -18,8 +18,6 @@ class LoginComponent extends Component {
             username: "in28minutes",
             password: ""
         }
-        // this.handleUsernameChange = this.handleUsernameChange.bind(this)
-        // this.handlePasswordChange = this.handlePasswordChange.bind(this)  
         this.handleChange = this.handleChange.bind(this)  
     }
 
@@ -29,20 +27,6 @@ class LoginComponent extends Component {
             [event.target.name]:event.target.value
         })
     }
-
-    // handleUsernameChange(event) {
-    //     console.log(event.target.value);
-    //     this.setState({
-    //         [event.target.name]:event.target.value
-    //     })
-    // }
- 
-    // handlePasswordChange(event) {
-    //     console.log(event.target.value);
-    //     this.setState({
-    //         [event.target.name]:event.target.value
-    //     })
-    // }
 
     render() {
         return (
