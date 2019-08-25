@@ -5,6 +5,9 @@ import LoginComponent from './LoginComponent.jsx'
 import ListTodosComponent from './ListTodosComponent.jsx'
 import HeaderComponent from './HeaderComponent.jsx'
 import FooterComponent from './FooterComponent.jsx'
+import ErrorComponent from './ErrorComponent.jsx'
+import LogoutComponent from './LogoutComponent.jsx'
+import WelcomeComponent from './WelcomeComponent.jsx'
 class TodoApp extends Component {
     render() {
         return (
@@ -26,36 +29,6 @@ class TodoApp extends Component {
             </div>
           );
     }
-}
-class LogoutComponent extends Component {
-    render() {
-        return(
-            <>
-                <h1>Logged out Successfully</h1>
-                <div className="container">
-                    Thank you for using the TODO list
-                </div>
-            </>
-        )
-    }
-}
-
-
-class WelcomeComponent extends Component {
-    render () {
-        return(
-            <>
-                <h1>Welcome! {this.props.match.params.name}</h1>
-                <div className="container">
-                You can manage your todos <Link to="/todos">here</Link>.
-                </div>
-            </>
-        );
-    }
-}
-
-function ErrorComponent() {
-    return(<div>An Error Occurred...Please contact the System Administrator</div>);
 }
 
 export default TodoApp
