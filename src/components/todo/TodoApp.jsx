@@ -69,6 +69,7 @@ class WelcomeComponent extends Component {
         return(
             <div>
                 Welcome {this.props.match.params.name}
+                You can manage your todos <a href="/todos">here</a>.
             </div>
         );
     }
