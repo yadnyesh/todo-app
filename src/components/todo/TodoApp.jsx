@@ -3,7 +3,8 @@ import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom'
 import AuthenticatedRoute from './AuthenticatedRoute.jsx'
 import LoginComponent from './LoginComponent.jsx'
 import ListTodosComponent from './ListTodosComponent.jsx'
-import HeaderComponent from './HeaderComponent'
+import HeaderComponent from './HeaderComponent.jsx'
+import FooterComponent from './FooterComponent.jsx'
 class TodoApp extends Component {
     render() {
         return (
@@ -26,17 +27,6 @@ class TodoApp extends Component {
           );
     }
 }
-
-class FooterComponent extends Component {
-    render() {
-        return(
-            <footer className="footer">
-                <span className="text-muted">All Rights not reserved</span>
-            </footer>
-        )
-    }
-}
-
 class LogoutComponent extends Component {
     render() {
         return(
