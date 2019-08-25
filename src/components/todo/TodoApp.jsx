@@ -14,6 +14,7 @@ class TodoApp extends Component {
                             <Route path="/login" component={LoginComponent}/>
                             <Route path="/welcome/:name" component={WelcomeComponent}/>
                             <Route path="/todos" exact component={ListTodosComponent}/>
+                            <Route path="/logout" exact component={LogoutComponent}/>
                             <Route component={ErrorComponent} />
                         </Switch>
                     <FooterComponent />
@@ -47,9 +48,22 @@ class HeaderComponent extends Component {
 class FooterComponent extends Component {
     render() {
         return(
-            <div>
-                <hr />Footer 
-            </div>
+            <footer className="footer">
+                <span className="text-muted">All Rights not reserved</span>
+            </footer>
+        )
+    }
+}
+
+class LogoutComponent extends Component {
+    render() {
+        return(
+            <>
+                <h1>Logged out Successfully</h1>
+                <div className="container">
+                    Thank you for using the TODO list
+                </div>
+            </>
         )
     }
 }
