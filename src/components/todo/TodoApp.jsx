@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom'
 import { prototype } from 'stream';
 
 class TodoApp extends Component {
@@ -8,13 +8,15 @@ class TodoApp extends Component {
             <div className="secondComponent">
             <Router>
                 <>
-                    <Switch>
-                        <Route path="/" exact component={LoginComponent}/>
-                        <Route path="/login" component={LoginComponent}/>
-                        <Route path="/welcome/:name" component={WelcomeComponent}/>
-                        <Route path="/todos" exact component={ListTodosComponent}/>
-                        <Route component={ErrorComponent} />
-                    </Switch>
+                    <HeaderComponent />
+                        <Switch>
+                            <Route path="/" exact component={LoginComponent}/>
+                            <Route path="/login" component={LoginComponent}/>
+                            <Route path="/welcome/:name" component={WelcomeComponent}/>
+                            <Route path="/todos" exact component={ListTodosComponent}/>
+                            <Route component={ErrorComponent} />
+                        </Switch>
+                    <FooterComponent />
                 </>
             </Router>
             </div>
@@ -22,16 +24,35 @@ class TodoApp extends Component {
     }
 }
 
+class HeaderComponent extends Component {
+    render() {
+        return(
+            <div>
+                Header <hr />
+            </div>
+        )
+    }
+}
+
+class FooterComponent extends Component {
+    render() {
+        return(
+            <div>
+                <hr />Footer 
+            </div>
+        )
+    }
+}
 
 class ListTodosComponent extends Component {
     constructor(props){
         super(props);
         this.state = {
             todos : [ 
-                        {id : 1,description: 'Learn React'},   
-                        {id : 2,description: 'Learn Java'},
-                        {id : 3,description: 'Learn GraphQL'},
-                        {id : 4,description: 'Learn ElasticSearch'}
+                        {id : 1,description: 'Learn React', done:false, targetDate : new Date()},   
+                        {id : 2,description: 'Learn Java', done:false, targetDate : new Date()},
+                        {id : 3,description: 'Learn GraphQL', done:false, targetDate : new Date()},
+                        {id : 4,description: 'Learn ElasticSearch', done:false, targetDate : new Date()}
                     ]
         }
     }
@@ -44,6 +65,8 @@ class ListTodosComponent extends Component {
                         <tr>
                             <th>ID</th>
                             <th>Description</th>
+                            <th>Completed</th>
+                            <th>Complete By Date</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -53,6 +76,8 @@ class ListTodosComponent extends Component {
                                     <tr>
                                         <td>{todo.id}</td>
                                         <td>{todo.description}</td>
+                                        <td>{todo.done.toString()}</td>
+                                        <td>{todo.targetDate.toString()}</td>
                                     </tr>
                                 )    
                             )        
@@ -63,13 +88,12 @@ class ListTodosComponent extends Component {
         );
     }
 }
-
 class WelcomeComponent extends Component {
     render () {
         return(
             <div>
                 Welcome {this.props.match.params.name}
-                You can manage your todos <a href="/todos">here</a>.
+                You can manage your todos <Link to="/todos">here</Link>.
             </div>
         );
     }
