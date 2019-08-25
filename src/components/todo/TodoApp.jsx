@@ -1,9 +1,9 @@
 import React, {Component} from 'react'
 import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom'
-import AuthenticationService from './AuthenticationService.js'
 import AuthenticatedRoute from './AuthenticatedRoute.jsx'
 import LoginComponent from './LoginComponent.jsx'
 import ListTodosComponent from './ListTodosComponent.jsx'
+import HeaderComponent from './HeaderComponent'
 class TodoApp extends Component {
     render() {
         return (
@@ -24,30 +24,6 @@ class TodoApp extends Component {
             </Router>
             </div>
           );
-    }
-}
-
-class HeaderComponent extends Component {
-    render() {
-
-        const isUserLoggedIn = AuthenticationService.isUserLoggedIn();
-        console.log(isUserLoggedIn);
-
-        return(
-            <header>
-                <nav className="navbar navbar-expand-md navbar-dark bg-dark">
-                    <div href="http://localhost:3000" className="navbar-brand"><a>Yadnyesh</a></div>
-                    <ul className="navbar-nav">
-                        {isUserLoggedIn && <li className="nav-link"><Link to="/welcome/in28minutes" className="nav-link">Home</Link></li>}
-                        {isUserLoggedIn && <li className="nav-link"><Link to="/todos" className="nav-link">Todos</Link></li>}
-                    </ul>
-                    <ul className="navbar-nav navbar-collapse justify-content-end">
-                        {!isUserLoggedIn && <li className="nav-link"><Link to="/login" className="nav-link">Login</Link></li>}
-                        {isUserLoggedIn && <li className="nav-link"><Link to="/logout" className="nav-link" onClick={AuthenticationService.logout}>Logout</Link></li>}
-                    </ul>
-                </nav>
-            </header>
-        )
     }
 }
 

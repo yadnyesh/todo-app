@@ -23,7 +23,7 @@ class ListTodosComponent extends Component {
                                 <th>ID</th>
                                 <th>Description</th>
                                 <th>Complete By Date</th>
-                                <th>Completed</th>
+                                <th>IsCompleted</th>
                             </tr>
                         </thead>
                         <tbody>
