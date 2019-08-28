@@ -7,6 +7,11 @@ class HelloWorldService {
         //console.log("From executeHelloWorldService")
     }
 
+    executeHelloWorldServicePath(name) {
+        return axios.get(`http://localhost:8080/hello-world-bean/${name}`)
+        //console.log("From executeHelloWorldService")
+    }
+
 }
 
 export default new HelloWorldService();
