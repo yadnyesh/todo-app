@@ -24,7 +24,9 @@ class WelcomeComponent extends Component {
     }
 
     retrieveWelcomeMessage() {
-        HelloWorldService.executeHelloWorldService();
+        HelloWorldService.executeHelloWorldService()
+        .then(response => console.log(response))
+        //.catch()
     }
 }
 
