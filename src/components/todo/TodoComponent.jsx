@@ -9,16 +9,19 @@ class TodoComponent extends Component {
         this.state = {
             id: this.props.match.params.id,
             description : 'Learn Forms',
-            targetDate : moment(new Date()).format('DD-MM-YYYY')
+            targetDate : moment(new Date()).format('YYYY-MM-DD')
         }
     }
 
     render() {
+
+        let {description, targetDate} = this.state
+        
         return(
         <div>
             <h1>TODO</h1>
             <div className="container">
-                <Formik>
+                <Formik initialValues={{description,targetDate}}>
                     {
                         (props) => (
                             <Form>
@@ -28,7 +31,7 @@ class TodoComponent extends Component {
                                 </fieldset>
                                 <fieldset className="form-group">
                                     <label>Target Date</label>
-                                    <Field className="form-control" type="date" name="targetdate"></Field>
+                                    <Field className="form-control" type="date" name="targetDate"></Field>
                                 </fieldset>  
                                 <button className="btn btn-success" type="submit">Save</button>        
                             </Form>
