@@ -8,8 +8,18 @@ class HelloWorldService {
     }
 
     executeHelloWorldServicePath(name) {
-        return axios.get(`http://localhost:8080/hello-world-bean/${name}`)
-        //console.log("From executeHelloWorldService")
+        let username = 'in28minutes'
+        let password = 'dummy'
+
+        let basicAuthHeader = 'Basic ' + window.btoa(username)  + ":" + window.btoa(password)
+
+        return axios.get(`http://localhost:8080/hello-world-bean/${name}`,
+            {
+                headers : {
+                    authorization : basicAuthHeader
+                }
+            }
+        )
     }
 
 }
