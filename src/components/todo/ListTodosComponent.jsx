@@ -13,6 +13,7 @@ class ListTodosComponent extends Component {
                         // {id : 4,description: 'Learn ElasticSearch', done:false, targetDate : new Date()}
                     ]
         }
+        this.deleteTodoClicked = this.deleteTodoClicked.bind(this)
     }
 
     componentWillUnmount(){
@@ -36,6 +37,11 @@ class ListTodosComponent extends Component {
                 })
             }
         )
+    }
+
+    deleteTodoClicked(id) {
+        let username = AuthenticationService.getLoggedInUserName()
+        console.log(id + "  "  + username) 
     }
 
     render () {
@@ -62,7 +68,7 @@ class ListTodosComponent extends Component {
                                             <td>{todo.description}</td>
                                             <td>{todo.targetDate.toString()}</td>
                                             <td>{todo.done.toString()}</td>
-                                            <td><button className="btn btn-warning">Delete</button></td>
+                                            <td><button className="btn btn-warning" onClick={() => this.deleteTodoClicked(todo.id)}>Delete</button></td>
                                         </tr>
                                     )    
                                 )        
