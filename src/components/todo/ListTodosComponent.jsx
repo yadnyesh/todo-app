@@ -50,6 +50,7 @@ class ListTodosComponent extends Component {
                                 <th>Description</th>
                                 <th>Complete By Date</th>
                                 <th>IsCompleted</th>
+                                <th>Delete</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -61,6 +62,7 @@ class ListTodosComponent extends Component {
                                             <td>{todo.description}</td>
                                             <td>{todo.targetDate.toString()}</td>
                                             <td>{todo.done.toString()}</td>
+                                            <td><button className="btn btn-warning">Delete</button></td>
                                         </tr>
                                     )    
                                 )        
