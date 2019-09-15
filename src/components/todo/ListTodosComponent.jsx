@@ -15,6 +15,7 @@ class ListTodosComponent extends Component {
             message: null        
         }
         this.deleteTodoClicked = this.deleteTodoClicked.bind(this)
+        this.updateTodoClicked = this.updateTodoClicked.bind(this)
         this.refreshTodos = this.refreshTodos.bind(this)
     }
 
@@ -57,6 +58,20 @@ class ListTodosComponent extends Component {
             )
     }
 
+    updateTodoClicked(id) {
+        console.log('Update: ' + id)
+        this.props.history.push(`/todos/${id}`)
+        // let username = AuthenticationService.getLoggedInUserName()
+        // //console.log(id + "  "  + username) 
+        // TodoDataService.deleteTodo(username, id)
+        //     .then(
+        //         response => {
+        //             this.setState({message: `Delete of todo ${id} successful`})
+        //             this.refreshTodos();
+        //         }
+        //     )
+    }
+
     render () {
         return(
             <div>
@@ -70,6 +85,7 @@ class ListTodosComponent extends Component {
                                 <th>Description</th>
                                 <th>Complete By Date</th>
                                 <th>IsCompleted</th>
+                                <th>Update</th>
                                 <th>Delete</th>
                             </tr>
                         </thead>
@@ -82,6 +98,7 @@ class ListTodosComponent extends Component {
                                             <td>{todo.description}</td>
                                             <td>{todo.targetDate.toString()}</td>
                                             <td>{todo.done.toString()}</td>
+                                            <td><button className="btn btn-success" onClick={() => this.updateTodoClicked(todo.id)}>Update</button></td>
                                             <td><button className="btn btn-warning" onClick={() => this.deleteTodoClicked(todo.id)}>Delete</button></td>
                                         </tr>
                                     )    
