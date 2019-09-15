@@ -12,6 +12,15 @@ class TodoComponent extends Component {
             targetDate : moment(new Date()).format('YYYY-MM-DD')
         }
         this.onSubmit = this.onSubmit.bind(this)
+        this.values = this.values.bind(this)
+
+    }
+
+    validate(values) {
+        let errors = {}
+        console.log(values)
+        return errors
+
     }
 
     onSubmit(values){
@@ -29,6 +38,7 @@ class TodoComponent extends Component {
                 <Formik 
                     initialValues={{description,targetDate}}
                     onSubmit={this.onSubmit}
+                    validate={this.validate}
                 >
                     {
                         (props) => (
