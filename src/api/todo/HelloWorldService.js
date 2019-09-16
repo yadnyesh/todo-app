@@ -8,16 +8,17 @@ class HelloWorldService {
     }
 
     executeHelloWorldServicePath(name) {
-        let username = 'in28minutes'
-        let password = 'dummy'
-        let basicAuthHeader = 'Basic ' + window.btoa(username  + ":" + password)
+        // let username = 'in28minutes'
+        // let password = 'dummy'
+        // let basicAuthHeader = 'Basic ' + window.btoa(username  + ":" + password)
 
-        return axios.get(`http://localhost:8080/hello-world-bean/${name}`,
-            {
-                headers : {
-                    authorization : basicAuthHeader
-                }
-            }
+        return axios.get(`http://localhost:8080/hello-world-bean/${name}`
+        // ,
+        //     {
+        //         headers : {
+        //             authorization : basicAuthHeader
+        //         }
+        //     }
         )
     }
 }
