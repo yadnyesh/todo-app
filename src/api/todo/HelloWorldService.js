@@ -1,9 +1,11 @@
 import axios from "axios"
+import {API_URL} from '../../constants.js'
+
 
 class HelloWorldService {
 
     executeHelloWorldService() {
-        return axios.get('http://localhost:8080/hello-world-bean')
+        return axios.get(`${API_URL}/hello-world-bean`)
         //console.log("From executeHelloWorldService")
     }
 
@@ -12,7 +14,7 @@ class HelloWorldService {
         // let password = 'dummy'
         // let basicAuthHeader = 'Basic ' + window.btoa(username  + ":" + password)
 
-        return axios.get(`http://localhost:8080/hello-world-bean/${name}`
+        return axios.get(`${API_URL}/hello-world-bean/${name}`
         // ,
         //     {
         //         headers : {
